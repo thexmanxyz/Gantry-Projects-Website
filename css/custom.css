@@ -38,6 +38,7 @@ a:hover {
 .to-top-btm-button{
 	cursor: pointer;
 	display: none;
+	padding-top: 12px;
 }
 
 #mainNav{
