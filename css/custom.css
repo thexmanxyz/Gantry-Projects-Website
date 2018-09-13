@@ -25,6 +25,10 @@ a:hover {
 	margin-bottom: 1.25rem;
 }
 
+.lead-author{
+	font-size: 1rem;
+}
+
 .author-img{
 	width: 150px; 
 	height: 150px;
