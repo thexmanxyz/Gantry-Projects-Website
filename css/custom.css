@@ -41,8 +41,8 @@ a:hover {
 	padding-top: 12px;
 }
 
-
 a.to-top-button {
+	display:none;
 	width: 60px;
 	height: 60px;
 	position: fixed;
@@ -65,6 +65,11 @@ a.to-top-button {
 
 a.to-top-button:hover {
 	background-color: rgb(118, 133, 158);
+}
+
+a.to-top-button .arrow-img{
+	vertical-align: top;
+	margin: 4px 8px 8px 8px;
 }
 
 #mainNav{

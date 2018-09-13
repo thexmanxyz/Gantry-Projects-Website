@@ -16,5 +16,7 @@ The homepage for the [gantryprojects.com](https://gantryprojects.com) project an
 ## Credits
 The used template is based on [Start Bootstrap - Scrolling Nav](https://github.com/BlackrockDigital/startbootstrap-scrolling-nav). Thanks @ [BlackrockDigital](https://github.com/BlackrockDigital).
 
+The template uses this [Floating ToTop Button](https://github.com/thexmanxyz/Floating-ToTop-Button).
+
 ## by [thex](https://github.com/thexmanxyz) | [gantryprojects](https://gantryprojects.com)
 Copyright (c) 2018, free to use in personal and commercial software as per the [license](/LICENSE.md).
