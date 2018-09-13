@@ -5,10 +5,10 @@ The homepage for the [gantryprojects.com](https://gantryprojects.com) project an
 * Webserver
 
 ## Future Tasks
+- [x] "to top" - button
 - [ ] Github API integration, release, interaction
 - [ ] SEO, minification
 - [ ] Design
-- [ ] "to top" - button
 
 ## Known Issues
 * none

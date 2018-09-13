@@ -35,12 +35,21 @@ a:hover {
 	border: 1px solid #dfe0e1;
 }
 
+.to-top-btm-button{
+	cursor: pointer;
+	display: none;
+}
+
 #mainNav{
-	box-shadow: 0 7px 5px -6px rgba(0, 0, 0, 0.41);
+	-webkit-box-shadow: 0 7px 5px -6px rgba(0, 0, 0, 0.41);
+	-moz-box-shadow: 0 7px 5px -6px rgba(0, 0, 0, 0.41);
+	box-shadow: 0 7px 5px -6px rgba(0, 0, 0, 0.40);
 }
 
 #atoms{
-	box-shadow: inset 0 7px 5px -5px rgba(0, 0, 0, 0.41);
+	-webkit-box-shadow: inset 0 7px 5px -5px rgba(0, 0, 0, 0.41);
+	-moz-box-shadow: inset 0 7px 5px -5px rgba(0, 0, 0, 0.41);
+	box-shadow: inset 0 7px 5px -5px rgba(0, 0, 0, 0.40);
 }
 
 footer a{
@@ -85,6 +94,14 @@ section {
 	section {
 		padding: 20px 15px;
 	}
+	
+	a.to-top-button {
+		display: none !important;
+	}
+	
+	a.to-top-btm-button{
+		display: inherit;
+	}
 }
 
 @media (max-width: 480px) {
@@ -92,4 +109,25 @@ section {
 	section {
 		padding: 10px 5px;
 	}
+}
+
+a.to-top-button {
+	width: 60px;
+	height: 60px;
+	position: fixed;
+	z-index: 999;
+	right: 20px;
+	bottom: 20px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	color: #fff;
+	padding-top: 2px;
+	text-align: center;
+	font-size: 40px;
+	font-weight: 600;
+	background-color: rgb(97, 110, 131);
+	-webkit-box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.6);
 }
