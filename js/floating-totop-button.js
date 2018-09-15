@@ -2,6 +2,16 @@
     var btnClass = 'to-top-button';
     var imgClass = 'arrow-img';
     
+    // helper function to determine mobile visibility
+    function showMobile(opts){
+        return opts.mobileHide == 0 || $(window).width() >= opts.mobileHide;
+    }
+    
+	// helper function to determine scroll visibility
+	function showTrigger(opts){
+		return $(window).scrollTop() >= opts.scrollTrigger
+	}
+		
     // append callback click events
     function addClickEvents(opts){
         var selector = opts.clickSelectors.join(',');
@@ -12,6 +22,12 @@
     // append callback scroll event
     function addScrollEvent(opts){
         $(window).scroll(opts.fadeScroll.bind(opts, opts));
+    }
+    
+    // append resize hide event
+    function addResizeEvent(opts){
+        $(window).resize(opts.resizeHide.bind(opts, opts));
+        
     }
     
     // add button to DOM
@@ -66,10 +82,11 @@
             filterClass = ' filter';
             
         // build styles 
-        if(opts.border.color != '' || opts.backgroundColor != ''){
+        if(opts.border.color != '' || opts.backgroundColor != '' || !showMobile(opts)){
             var boColor = 'border-color:' + opts.border.color;
             var bgColor = 'background-color:' + opts.backgroundColor;
-            linkStyle = ' style="' + bgColor + ';' + boColor + '"';
+            var display = !showMobile(opts) ? 'display:none' : '';
+            linkStyle = ' style="' + bgColor + ';' + boColor + ';' + display + '"';
         }
         
         // build custom classes 
@@ -94,36 +111,38 @@
         appendButton(this, opts);
         addScrollEvent(opts);
         addClickEvents(opts);
+		addResizeEvent(opts);
     };
     
     
    /* default values
     *
-    * imagePath: base path of the icon files
-    * arrowType: 'arrow', 'arrow-circle', 'caret', 'caret-circle', 'circle', 'circle-o', 'arrow-l', 'drop', 'rise', 'top'
-    * scrollTrigger: scroll amount in pixel to trigger the button if autoHide is off
-    * animationTime: animation time when scrolling to top
-    * opacity: opacity values 0-20 (0-1.00)
-    * shape: button shape with the values 0-10 (0-50%) - border radius
-    * margin: margin of the button, with the values 0-10 (0-100px)
-    * palette: default color palettes (CSS color names can be used in lower case)
-    * iconColor: icon color either black or white ('b' or 'w')
-    * backgroundColor: hex value of background color
-    * border.width:  border width with values 0-3 (0 - 3px)
-    * border.color: hex value of border color
-    * position: tl = top-left, tr = top-right, bl = bottom-left, br = bottom-right
-    * size: different button sizes, values 1-6 (30-80px)
-    * fadeInSpeed: speed for fade in, "fast" or "slow"
-    * fadeOutSpeed: speed for fade out, "fast" or "slow"
-    * iconShadow: values 1-16 for different stylings
-    * btnShadow: values 1-5 for different stylings
-    * autoHide: if enabled the button will automatically hide depending on the scrollTrigger
-    * filter: defines whether CSS filter should be used instead of the default color rollover (be aware of browser support)
-    * linkClasses: array of link classes
-    * imgClasses: array of image classes
-    * clickSelectors: additional selectors for the click event
-    * animateScroll: function for scroll animation
-    * fadeScroll function for scroll button fading
+    * imagePath: Base path of the icon files.
+    * arrowType: Defines the icon appearance, available default options are arrow, arrow-circle, caret, caret-circle, circle, circle-o, arrow-l, drop, rise, top. You can also use your own SVG image.
+    * scrollTrigger: Scroll amount in pixel to trigger the button if autoHide is on.
+    * animationTime: Animation time when scrolling back to top after click.
+    * opacity: Opacity default value range is 0-20 (0-1.00).
+    * shape: Button shape can be defined in the value range 0-10 (0-50%) - border radius.
+    * margin: Margin of the button, with the value range of 0-10 (0-100px).
+    * palette: Default color palette (CSS color names can be used in lower case).
+    * iconColor: Icon color either black or white ('b' or 'w').
+    * backgroundColor: HEX or RGB(A) value for the background color.
+    * border.width: Border width with values range of 0-3 (0-3px).
+    * border.color: HEX or RGB(A) value for the border color.
+    * position: The following four options are available: 'tl' = top-left, 'tr' = top-right, 'bl' = bottom-left, 'br' = bottom-right.
+    * size: Different button sizes are available, values range from 1-6 (30-80px).
+    * fadeInSpeed: Time for fade in, "fast", "slow" or a numerical value e.g. 200.
+    * fadeOutSpeed: Time for fade out, "fast", "slow" or a numerical value e.g. 200.
+    * iconShadow: Icon shadow values range from 1-16 for different stylings.
+    * btnShadow: Button shadow values range from 1-5 for different stylings.
+    * mobileHide: If the value is 0 then the button will always be shown otherwise the button will only be visible if the window width exceeds the specified pixel value.
+    * autoHide: If enabled, the button will automatically hide depending on the scrollTrigger value.  
+    * filter: Defines whether a CSS filter should be used instead of the default color rollover (be aware of browser support).
+    * linkClasses: Array of link classes in the form ['a','b','c'].
+    * imgClasses: Array of images classes in the form ['d','e','f'].
+    * clickSelectors: Additional selectors for the button click event in the form [g,h,i].
+    * animateScroll: Custom function for the scroll animation (callback).
+    * fadeScroll Custom function for the scroll button fading (callback).
     *
     */
     $.fn.toTopButton.defaults = {
@@ -147,6 +166,7 @@
         fadeOutSpeed: 'fast',
         iconShadow: 4,
         btnShadow: 2,
+        mobileHide: 768,
         autoHide: true,
         filter: true,
         linkClasses: [],
@@ -162,8 +182,8 @@
         // fade scroll method - can be user customized
         fadeScroll: function(opts) {
             var btn = $('a.' + btnClass);
-            if(opts.autoHide){
-                if($(window).scrollTop() > opts.scrollTrigger) {
+            if(opts.autoHide && showMobile(opts)){
+                if(showTrigger(opts)) {
                     if(!$(btn).is(':visible'))
                         $(btn).fadeIn(opts.fadeInSpeed);
                 }else{
@@ -171,10 +191,18 @@
                         $(btn).fadeOut(opts.fadeOutSpeed);
                 }
             }
+        },
+        
+		// resize hide method - can be user customized
+        resizeHide: function(opts) {
+            if(showMobile(opts) && showTrigger(opts))
+                $('.' + btnClass).css('display', 'inline');
+            else
+                $('.' + btnClass).css('display', 'none');
         }
     };
  
 })( jQuery );
 
-// attach plugin to body
-$("body").toTopButton({clickSelectors: ['a.to-top-btm-button']});
+// attach plugin to body, basic example
+// $("body").toTopButton({});
