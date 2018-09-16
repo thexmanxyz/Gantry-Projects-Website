@@ -15,10 +15,14 @@ This project contains the website accessible under the domain [gantryprojects.co
 ## Known Issues
 * none
 
-## Credits
-The used template is based on [Start Bootstrap - Scrolling Nav](https://github.com/BlackrockDigital/startbootstrap-scrolling-nav). Thanks @ [BlackrockDigital](https://github.com/BlackrockDigital).
+## Dependencies
+ * [Scrolling Nav](https://github.com/BlackrockDigital/startbootstrap-scrolling-nav)
+ * [Floating ToTop Button](https://github.com/thexmanxyz/Floating-ToTop-Button)
 
-The template modification adds the [Floating ToTop Button](https://github.com/thexmanxyz/Floating-ToTop-Button) to the website.
+## Credits
+The used template is based on [Start Bootstrap - Scrolling Nav](https://github.com/BlackrockDigital/startbootstrap-scrolling-nav).
+
+The [Floating ToTop Button](https://github.com/thexmanxyz/Floating-ToTop-Button) is used on the desktop version of the website.
 
 The external hosting of the website uses [minify](https://github.com/matthiasmullie/minify) to combine the JavaScript and CSS files.
 
