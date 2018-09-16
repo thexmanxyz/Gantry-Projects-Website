@@ -20,5 +20,7 @@ The used template is based on [Start Bootstrap - Scrolling Nav](https://github.c
 
 The template modification adds the [Floating ToTop Button](https://github.com/thexmanxyz/Floating-ToTop-Button) to the website.
 
+The external hosting of the website uses [minify](https://github.com/matthiasmullie/minify) to combine the JavaScript and CSS files.
+
 ## by [thex](https://github.com/thexmanxyz) | [gantryprojects](https://gantryprojects.com)
 Copyright (c) 2018, free to use in personal and commercial software as per the [license](/LICENSE.md).
