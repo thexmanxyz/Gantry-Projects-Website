@@ -6,8 +6,10 @@ The homepage for the [gantryprojects.com](https://gantryprojects.com) project an
 
 ## Future Tasks
 - [x] "to top" - button
+- [x] SEO, Optimization
+- [ ] social share
 - [ ] Github API integration, release, interaction
-- [ ] SEO, minification
+- [ ] Minification
 - [ ] Design
 
 ## Known Issues
