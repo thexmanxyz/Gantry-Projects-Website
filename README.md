@@ -1,5 +1,5 @@
 # Gantry Projects Website
-This project contains the homepage accessible under the domain [gantryprojects.com](https://gantryprojects.com). The hosting on Github Pages is part of this repository. Link to [Github Pages](https://thexmanxyz.github.io/Gantry-Projects-Website/). At the moment the website contains a summary and presentation of all my Gantry projects (e.g. Particles, Atoms and extensions).
+This project contains the website accessible under the domain [gantryprojects.com](https://gantryprojects.com). The direct hosting on Github Pages is created from this repository. Link to [Github Pages](https://thexmanxyz.github.io/Gantry-Projects-Website/). At the moment the website contains a summary and presentation of all my Gantry projects (e.g. Particles, Atoms and extensions).
 
 ## Prerequisites
 * Webserver
