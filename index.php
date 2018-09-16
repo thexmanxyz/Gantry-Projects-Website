@@ -1,6 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  
+	<?php
+	
+		// import minify
+		$path = __DIR__ . '/libs';
+		require_once $path . '/minify/src/Minify.php';
+		require_once $path . '/minify/src/CSS.php';
+		require_once $path . '/minify/src/JS.php';
+		require_once $path . '/minify/src/Exception.php';
+		require_once $path . '/minify/src/Exceptions/BasicException.php';
+		require_once $path . '/minify/src/Exceptions/FileImportException.php';
+		require_once $path . '/minify/src/Exceptions/IOException.php';
+		require_once $path . '/path-converter/src/ConverterInterface.php';
+		require_once $path . '/path-converter/src/Converter.php';
+
+		use MatthiasMullie\Minify;
+			
+		// minified output paths
+		$minCssPath = 'css/gp.min.css';
+		$minJsPath = 'js/gp.min.js';
+		
+		$hasCss = file_exists(__DIR__ . '/' . $minCssPath);
+		$hasJs = file_exists(__DIR__ . '/' . $minJsPath);
+	
+		// minify CSS only if file not exists
+		if(!$hasCss){
+			$minifier = new Minify\CSS('vendor/bootstrap/css/bootstrap.min.css');
+			$minifier->add('css/floating-totop-button.min.css');
+			$minifier->add('css/custom.min.css');
+			$minifier->minify($minCssPath);
+		}
+		
+		// minify JS only if file not exists
+		if(!$hasJs){
+			$minifier = new Minify\JS('vendor/jquery/jquery.min.js');
+			$minifier->add('vendor/bootstrap/js/bootstrap.bundle.min.js');
+			$minifier->add('vendor/jquery-easing/jquery.easing.min.js');
+			$minifier->add('js/scrolling-nav.min.js');
+			$minifier->add('js/floating-totop-button.min.js');
+			$minifier->add('js/custom.min.js');
+			$minifier->minify($minJsPath);
+		}
+	?>
 
 	<!-- General -->
     <meta charset="utf-8">
@@ -11,13 +54,9 @@
 
 	<!-- Canonical -->
 	<link rel="canonical" href="https://gantryprojects.com">
-	
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/floating-totop-button.min.css" rel="stylesheet">
-    <link href="css/custom.min.css" rel="stylesheet">
+    <!-- Minimized Stylesheets -->
+    <link href="<?php echo $minCssPath; ?>" rel="stylesheet">
     
     <!-- Favicon / Touch Icons -->
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -413,21 +452,8 @@
       <!-- /.container -->
     </footer>
 
-    <!-- jQuery and Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- jQuery easing JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom JavaScript for this theme -->
-    <script src="js/scrolling-nav.min.js"></script>
-
-    <!-- Floating - To Top Button -->
-    <script src="js/floating-totop-button.min.js"></script>
+    <!-- Minimized Scripts -->
+    <script src="<?php echo $minJsPath; ?>" defer async></script>
 	
-	<!-- Custom JavaScript for the website -->
-	<script src="js/custom.min.js"></script>
-
   </body>
 </html>
