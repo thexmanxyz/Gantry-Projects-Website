@@ -1,3 +1,18 @@
+/******************************************************
+*                                                     *
+*   Gantry Projects Website                           *
+*                                                     *
+*   Purpose: This project contains the web resources  *
+*            for the Gantry Projects website.         *
+*                                                     *
+*   Author: Andreas Kar (thex) <andreas.kar@gmx.at>   *
+*   Repository: https://git.io/fA1FV                  *
+*   Homepage: https://gantryprojects.com              *
+*                                                     *
+******************************************************/
+
+/* This file is part of the Scrolling Nav template https://github.com/BlackrockDigital/startbootstrap-scrolling-nav */
+
 (function($) {
   "use strict"; // Start of use strict
 
