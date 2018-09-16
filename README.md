@@ -18,13 +18,14 @@ This project contains the website accessible under the domain [gantryprojects.co
 ## Dependencies
  * [Scrolling Nav](https://github.com/BlackrockDigital/startbootstrap-scrolling-nav)
  * [Floating ToTop Button](https://github.com/thexmanxyz/Floating-ToTop-Button)
+ * [Minify](https://github.com/matthiasmullie/minify)
 
 ## Credits
 The used template is based on [Start Bootstrap - Scrolling Nav](https://github.com/BlackrockDigital/startbootstrap-scrolling-nav).
 
 The [Floating ToTop Button](https://github.com/thexmanxyz/Floating-ToTop-Button) is used on the desktop version of the website.
 
-The external hosting of the website uses [minify](https://github.com/matthiasmullie/minify) to combine the JavaScript and CSS files.
+The external hosting of the website uses [Minify](https://github.com/matthiasmullie/minify) to combine the JavaScript and CSS files.
 
 ## by [thex](https://github.com/thexmanxyz) | [gantryprojects](https://gantryprojects.com)
 Copyright (c) 2018, free to use in personal and commercial software as per the [license](/LICENSE.md).
