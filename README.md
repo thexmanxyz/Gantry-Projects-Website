@@ -7,9 +7,9 @@ This project contains the website accessible under the domain [gantryprojects.co
 ## Future Tasks
 - [x] "to top" - button
 - [x] SEO, Optimization
+- [x] Minification
 - [ ] social share
 - [ ] Github API integration, release, interaction
-- [ ] Minification
 - [ ] Design
 
 ## Known Issues
